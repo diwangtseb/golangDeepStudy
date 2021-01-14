@@ -1,0 +1,2 @@
+# goModulePackageSetting
+golang的模块和包的使用设置
