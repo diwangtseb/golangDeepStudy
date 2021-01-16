@@ -46,7 +46,7 @@
 > >>
 > >>3. 以上图为例：golang中的package 一般对应用 每一个目录名，同一个目录中的package名一样都是对于mypackage来说mypackage.go和mypackagetwo.go都是其中的*[portion](javascript:;)*都可以直接使用。
 
-### 2.golang通道的使用demo
+### 2.Go通道的使用demo
 
 >1.Channel 是 Go 语言中被用来实现并行计算方程之间通信的类型。其功能是允许线程间通过发送和接收来传输指定类型的数据。其初始值是 nil。
 >
@@ -152,4 +152,31 @@
 
 ### 3.Go中的面向对象
 
-> 1.golang中并没有自带传统中高级语言的继承、多态而是提供了一种更有意思的方式，一般称为组合
+> 1. golang中并没有自带传统中高级语言的继承、多态而是提供了一种更有意思的方式，一般称为组合
+
+### 4.Go中的New和Make的区别
+
+> 1. golang中New分配的空间被清零,返回的是指针类型*Type
+> 2. Make会分配空间并且初始化，并且返回的是引用Type
+
+###  Go中的接口
+
+>1. golang中只要接口定义的方法被实现则实现
+>
+>2. ```go
+>   type Handler interface {
+>       ServeHTTP(ResponseWriter, *Request)   //路由具体实现
+>   }
+>   
+>   func (engin *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+>   	key := req.Method + "-" + req.URL.Path
+>   	if handleFunc, ok := engin.router[key]; ok {
+>   		handleFunc(w, req)
+>   	} else {
+>   		fmt.Fprintf(w, "404 not found\n %s", req.URL.Path)
+>   	}
+>   }
+>   
+>   ```
+>
+>3. 上面代码则实现了对Handler接口中定义的方法实现
