@@ -163,20 +163,19 @@
 
 >1. golang中只要接口定义的方法被实现则实现
 >
->2. ```go
->   type Handler interface {
->       ServeHTTP(ResponseWriter, *Request)   //路由具体实现
->   }
->   
->   func (engin *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
->   	key := req.Method + "-" + req.URL.Path
->   	if handleFunc, ok := engin.router[key]; ok {
->   		handleFunc(w, req)
->   	} else {
->   		fmt.Fprintf(w, "404 not found\n %s", req.URL.Path)
->   	}
->   }
->   
->   ```
+>     ```go
+>     type Handler interface {
+>      ServeHTTP(ResponseWriter, *Request)   //路由具体实现
+>     }
+>     
+>     func (engin *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+>         key := req.Method + "-" + req.URL.Path
+>         if handleFunc, ok := engin.router[key]; ok {
+>             handleFunc(w, req)
+>         } else {
+>             fmt.Fprintf(w, "404 not found\n %s", req.URL.Path)
+>         }
+>     }
+>     ```
 >
->3. 上面代码则实现了对Handler接口中定义的方法实现
+>      上面代码则实现了对Handler接口中定义的方法实现
