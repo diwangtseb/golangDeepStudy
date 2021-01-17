@@ -14,6 +14,10 @@ type Engine struct {
 	router map[string]HandlerFunc
 }
 
+func test() {
+
+}
+
 // New is the constructor of myGin.Engine
 func New() *Engine {
 	return &Engine{router: make(map[string]HandlerFunc)}
